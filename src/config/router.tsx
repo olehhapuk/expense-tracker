@@ -20,10 +20,16 @@ export const router = createBrowserRouter([
       {
         path: urls.home,
         element: <Home />,
+        handle: {
+          label: 'Home',
+        },
       },
       {
         path: urls.expenses,
         element: <Expenses />,
+        handle: {
+          label: 'Expenses',
+        },
       },
     ],
   },
