@@ -8,16 +8,21 @@ import Layout from '../components/Layout';
 const Home = lazy(() => import('../pages/HomePage'));
 const Expenses = lazy(() => import('../pages/ExpensesPage'));
 
+export const urls = {
+  home: '/',
+  expenses: '/expenses',
+};
+
 export const router = createBrowserRouter([
   {
     element: <Layout />,
     children: [
       {
-        path: '/',
+        path: urls.home,
         element: <Home />,
       },
       {
-        path: '/expenses',
+        path: urls.expenses,
         element: <Expenses />,
       },
     ],
