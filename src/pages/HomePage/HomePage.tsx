@@ -1,5 +1,6 @@
 import { Stack } from '@mui/material';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import BalanceCard from './BalanceCard';
 import Section from '../../components/Section';
@@ -7,6 +8,7 @@ import YearSelect from './YearSelect';
 import AnalyticsChart from './AnalyticsChart';
 import TransactionsList from './Transactions/TransactionsList';
 import ButtonViewAll from '../../components/ButtonViewAll';
+import { RootState } from '../../redux/store';
 
 const date = new Date();
 const currentYear = date.getFullYear();
@@ -57,9 +59,11 @@ const revenueData = [
 function HomePage() {
   const [year, setYear] = useState(currentYear);
 
+  const card = useSelector((state: RootState) => state.card);
+
   return (
     <Stack gap="32px">
-      <BalanceCard />
+      <BalanceCard card={card} />
 
       <Section
         title="Analytics"

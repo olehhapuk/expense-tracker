@@ -1,5 +1,7 @@
 import { styled, Stack, IconButton } from '@mui/material';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import { Card } from '../../types/Card';
+import { formatNumberToCurrency } from '../../utils/format';
 
 const BalanceCardSection = styled('div')({
   position: 'relative',
@@ -78,16 +80,22 @@ const MoreBtn = styled(IconButton)({
   color: '#fff',
 });
 
-function BalanceCard() {
+interface BalanceCardProps {
+  card: Card;
+}
+
+function BalanceCard({ card }: BalanceCardProps) {
   return (
     <BalanceCardSection>
       <SecondaryCard />
 
       <BalanceCardRoot>
         <BalanceCardTitle>Total Balance</BalanceCardTitle>
-        <BalanceCardMoney>$76,22.00</BalanceCardMoney>
+        <BalanceCardMoney>
+          {formatNumberToCurrency(card.amount)}
+        </BalanceCardMoney>
         <Stack direction="row" justifyContent="space-between">
-          <BalanceCardNumber>2544 7545 3785 1023</BalanceCardNumber>
+          <BalanceCardNumber>{card.number}</BalanceCardNumber>
           <BalanceCardIcon />
         </Stack>
         <MoreBtn>

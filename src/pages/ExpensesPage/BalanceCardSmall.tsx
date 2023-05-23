@@ -1,7 +1,9 @@
 import { styled, Stack } from '@mui/material';
 import WalletIcon from '@mui/icons-material/Wallet';
+import { Card } from '../../types/Card';
+import { formatNumberToCurrency } from '../../utils/format';
 
-const Card = styled('div')(({ color }) => ({
+const CardRoot = styled('div')(({ color }) => ({
   backgroundColor: color,
   borderRadius: '6px',
   padding: '24px 22px',
@@ -49,22 +51,16 @@ const CardNumber = styled('p')({
 });
 
 interface BalanceCardSmallProps {
-  amount: number;
+  card: Card;
   account: string;
-  cardNumber: string;
   color: string;
 }
 
-function BalanceCardSmall({
-  amount,
-  account,
-  cardNumber,
-  color,
-}: BalanceCardSmallProps) {
+function BalanceCardSmall({ card, account, color }: BalanceCardSmallProps) {
   return (
-    <Card color={color}>
+    <CardRoot color={color}>
       <Title>Total Balance</Title>
-      <Amount>${amount}</Amount>
+      <Amount>{formatNumberToCurrency(card.amount)}</Amount>
 
       <Footer direction="row" gap="8px">
         <WalletIcon
@@ -76,10 +72,10 @@ function BalanceCardSmall({
         />
         <Stack justifyContent="space-between">
           <Account>{account}</Account>
-          <CardNumber>**** **** {cardNumber.slice(12)}</CardNumber>
+          <CardNumber>**** **** {card.number.slice(15)}</CardNumber>
         </Stack>
       </Footer>
-    </Card>
+    </CardRoot>
   );
 }
 

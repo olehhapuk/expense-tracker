@@ -1,4 +1,5 @@
 import { Stack } from '@mui/material';
+import { useSelector } from 'react-redux';
 
 // import Calendar from './Calendar';
 import SmallCalendar from './SmallCalendar';
@@ -6,26 +7,19 @@ import BalanceCardSmall from './BalanceCardSmall';
 import Section from '../../components/Section';
 import ExpensesList from './Expenses/ExpensesList';
 import ButtonViewAll from '../../components/ButtonViewAll';
+import { RootState } from '../../redux/store';
 
 function ExpensesPage() {
+  const card = useSelector((state: RootState) => state.card);
+
   return (
     <Stack gap="32px">
       {/* <Calendar /> */}
       <SmallCalendar />
 
       <Stack direction="row" justifyContent="space-between" gap="20px">
-        <BalanceCardSmall
-          account="Bank Account"
-          amount={76220}
-          cardNumber="0000000000001965"
-          color="#8234F8"
-        />
-        <BalanceCardSmall
-          account="Bank Account"
-          amount={76220}
-          cardNumber="0000000000001965"
-          color="#FF643B"
-        />
+        <BalanceCardSmall card={card} account="Bank Account" color="#8234F8" />
+        <BalanceCardSmall card={card} account="Bank Account" color="#FF643B" />
       </Stack>
 
       <Section
