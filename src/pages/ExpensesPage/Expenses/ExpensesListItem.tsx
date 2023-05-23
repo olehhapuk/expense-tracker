@@ -12,6 +12,7 @@ import {
 } from '@mui/material';
 
 import { Expense } from '../../../types/Expense';
+import { formatNumberToCurrency } from '../../../utils/format';
 
 interface ExpensesListItemProps {
   expense: Expense;
@@ -83,7 +84,11 @@ function ExpensesListItem({ expense }: ExpensesListItemProps) {
         <TableBody>
           <TableRow>
             <StyledTableCell color="#2BB272">${expense.amount}</StyledTableCell>
-            <StyledTableCell>${expense.budget}</StyledTableCell>
+            <StyledTableCell>
+              {formatNumberToCurrency(expense.budget, {
+                maximumFractionDigits: 0,
+              })}
+            </StyledTableCell>
             <StyledTableCell color="#2BB272" align="right">
               {percentage}%
             </StyledTableCell>
