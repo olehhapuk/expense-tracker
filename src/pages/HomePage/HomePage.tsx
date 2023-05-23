@@ -6,6 +6,7 @@ import Section from '../../components/Section';
 import YearSelect from './YearSelect';
 import AnalyticsChart from './AnalyticsChart';
 import TransactionsList from './Transactions/TransactionsList';
+import ButtonViewAll from '../../components/ButtonViewAll';
 
 const date = new Date();
 const currentYear = date.getFullYear();
@@ -73,7 +74,10 @@ function HomePage() {
         <AnalyticsChart items={revenueData} />
       </Section>
 
-      <Section title="Transactions">
+      <Section
+        title="Transactions"
+        endContent={<ButtonViewAll>View All</ButtonViewAll>}
+      >
         <TransactionsList
           transactions={[
             {
