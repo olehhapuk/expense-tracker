@@ -1,6 +1,7 @@
 import { Stack } from '@mui/material';
 
-import Calendar from './Calendar';
+// import Calendar from './Calendar';
+import SmallCalendar from './SmallCalendar';
 import BalanceCardSmall from './BalanceCardSmall';
 import Section from '../../components/Section';
 import ExpensesList from './Expenses/ExpensesList';
@@ -9,7 +10,9 @@ import ButtonViewAll from '../../components/ButtonViewAll';
 function ExpensesPage() {
   return (
     <Stack gap="32px">
-      <Calendar />
+      {/* <Calendar /> */}
+      <SmallCalendar />
+
       <Stack direction="row" justifyContent="space-between" gap="20px">
         <BalanceCardSmall
           account="Bank Account"
