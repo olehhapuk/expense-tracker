@@ -11,11 +11,10 @@ import {
   Box,
 } from '@mui/material';
 
-import { Transaction } from '../../../types/Transaction';
+import { Expense } from '../../../types/Expense';
 
 interface ExpensesListItemProps {
-  expense: Transaction;
-  budget: number;
+  expense: Expense;
 }
 
 const Item = styled('div')({
@@ -53,13 +52,14 @@ const ProgressLine = styled(Box)({
   backgroundColor: '#8635F7',
 });
 
-function ExpensesListItem({ expense, budget }: ExpensesListItemProps) {
-  const percentage = Math.round((expense.amount / budget) * 100 * 100) / 100;
+function ExpensesListItem({ expense }: ExpensesListItemProps) {
+  const percentage =
+    Math.round((expense.amount / expense.budget) * 100 * 100) / 100;
 
   return (
     <Item>
       <ItemHeader direction="row" gap="16px">
-        <Avatar>{expense.avatar}</Avatar>
+        <Avatar src={expense.avatar} alt={expense.target} />
         <Stack justifyContent="space-between" flexGrow={1}>
           <Typography fontSize="16px" fontWeight={500}>
             {expense.target}
@@ -83,7 +83,7 @@ function ExpensesListItem({ expense, budget }: ExpensesListItemProps) {
         <TableBody>
           <TableRow>
             <StyledTableCell color="#2BB272">${expense.amount}</StyledTableCell>
-            <StyledTableCell>${budget}</StyledTableCell>
+            <StyledTableCell>${expense.budget}</StyledTableCell>
             <StyledTableCell color="#2BB272" align="right">
               {percentage}%
             </StyledTableCell>

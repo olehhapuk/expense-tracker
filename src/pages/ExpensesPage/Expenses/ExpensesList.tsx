@@ -1,17 +1,17 @@
 import { Stack } from '@mui/material';
 
-import { Transaction } from '../../../types/Transaction';
 import ExpensesListItem from './ExpensesListItem';
+import { Expense } from '../../../types/Expense';
 
 interface ExpensesListProps {
-  expenses: Transaction[];
+  expenses: Expense[];
 }
 
 function ExpensesList({ expenses }: ExpensesListProps) {
   return (
     <Stack gap="16px">
       {expenses.map((expense) => (
-        <ExpensesListItem key={expense.id} expense={expense} budget={3000} />
+        <ExpensesListItem key={expense.id} expense={expense} />
       ))}
     </Stack>
   );

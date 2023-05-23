@@ -11,6 +11,7 @@ import { RootState } from '../../redux/store';
 
 function ExpensesPage() {
   const card = useSelector((state: RootState) => state.card);
+  const expenses = useSelector((state: RootState) => state.expenses);
 
   return (
     <Stack gap="32px">
@@ -31,26 +32,7 @@ function ExpensesPage() {
         title="Expenses"
         endContent={<ButtonViewAll>View All</ButtonViewAll>}
       >
-        <ExpensesList
-          expenses={[
-            {
-              id: 'id-1',
-              account: 'Bank Account',
-              amount: 2486,
-              target: 'Nike Super Store',
-              time: new Date(),
-              avatar: 'NS',
-            },
-            {
-              id: 'id-2',
-              account: 'Bank Account',
-              amount: 952,
-              target: 'Puma Store',
-              time: new Date(),
-              avatar: 'PS',
-            },
-          ]}
-        />
+        <ExpensesList expenses={expenses} />
       </Section>
     </Stack>
   );
