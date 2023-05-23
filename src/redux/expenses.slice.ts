@@ -29,17 +29,17 @@ export const expensesSlice = createSlice({
   name: 'expenses',
   initialState,
   reducers: {
-    setExpenses: (state, action: PayloadAction<Expense[]>) => {
-      state = action.payload;
+    setExpenses: (_state, action: PayloadAction<Expense[]>) => {
+      _state = action.payload;
     },
-    addExpense: (state, action: PayloadAction<Expense>) => {
-      state.push(action.payload);
+    addExpense: (_state, action: PayloadAction<Expense>) => {
+      _state.push(action.payload);
     },
-    removeExpense: (state, action: PayloadAction<Expense['id']>) => {
-      state = state.filter(({ id }) => id !== action.payload);
+    removeExpense: (_state, action: PayloadAction<Expense['id']>) => {
+      _state = _state.filter(({ id }) => id !== action.payload);
     },
-    updateExpense: (state, { payload }: PayloadAction<Expense>) => {
-      state = state.map((expense) =>
+    updateExpense: (_state, { payload }: PayloadAction<Expense>) => {
+      _state = _state.map((expense) =>
         expense.id === payload.id ? payload : expense
       );
     },

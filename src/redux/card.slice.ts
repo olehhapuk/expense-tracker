@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
 import { Card } from '../types/Card';
 
 const initialState: Card = {
@@ -10,8 +11,8 @@ export const cardSlice = createSlice({
   name: 'card',
   initialState,
   reducers: {
-    setCard: (state, action: PayloadAction<Card>) => {
-      state = action.payload;
+    setCard: (_state, action: PayloadAction<Card>) => {
+      _state = action.payload;
     },
   },
 });

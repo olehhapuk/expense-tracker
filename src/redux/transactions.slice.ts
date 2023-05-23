@@ -27,17 +27,17 @@ export const transactionsSlice = createSlice({
   name: 'transactions',
   initialState,
   reducers: {
-    setTransactions: (state, action: PayloadAction<Transaction[]>) => {
-      state = action.payload;
+    setTransactions: (_state, action: PayloadAction<Transaction[]>) => {
+      _state = action.payload;
     },
-    addTransaction: (state, action: PayloadAction<Transaction>) => {
-      state.push(action.payload);
+    addTransaction: (_state, action: PayloadAction<Transaction>) => {
+      _state.push(action.payload);
     },
-    removeTransaction: (state, action: PayloadAction<Transaction['id']>) => {
-      state = state.filter(({ id }) => id !== action.payload);
+    removeTransaction: (_state, action: PayloadAction<Transaction['id']>) => {
+      _state = _state.filter(({ id }) => id !== action.payload);
     },
-    updateTransaction: (state, action: PayloadAction<Transaction>) => {
-      state = state.map((transaction) =>
+    updateTransaction: (_state, action: PayloadAction<Transaction>) => {
+      _state = _state.map((transaction) =>
         transaction.id === action.payload.id ? action.payload : transaction
       );
     },

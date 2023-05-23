@@ -44,8 +44,8 @@ export const analyticsSlice = createSlice({
   name: 'analytics',
   initialState,
   reducers: {
-    setCard: (state, action: PayloadAction<Revenue[]>) => {
-      state = action.payload;
+    setCard: (_state, action: PayloadAction<Revenue[]>) => {
+      _state = action.payload;
     },
   },
 });
