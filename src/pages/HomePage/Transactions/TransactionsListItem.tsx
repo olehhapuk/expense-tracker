@@ -15,7 +15,7 @@ const Item = styled(Stack)({
 function TransactionsListItem({ transaction }: TransactionsListItemProps) {
   return (
     <Item direction="row" gap="16px">
-      <Avatar>{transaction.avatar}</Avatar>
+      <Avatar src={transaction.avatar} alt={transaction.target} />
       <Stack justifyContent="space-between" flexGrow={1}>
         <Typography fontSize="16px" fontWeight={500}>
           {transaction.target}

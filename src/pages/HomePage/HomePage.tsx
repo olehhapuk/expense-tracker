@@ -23,6 +23,7 @@ function HomePage() {
 
   const card = useSelector((state: RootState) => state.card);
   const analytics = useSelector((state: RootState) => state.analytics);
+  const transactions = useSelector((state: RootState) => state.transactions);
 
   return (
     <Stack gap="32px">
@@ -45,26 +46,7 @@ function HomePage() {
         title="Transactions"
         endContent={<ButtonViewAll>View All</ButtonViewAll>}
       >
-        <TransactionsList
-          transactions={[
-            {
-              id: 'id-1',
-              account: 'Bank Account',
-              amount: 475,
-              target: 'Nike Super Store',
-              time: new Date(),
-              avatar: 'NS',
-            },
-            {
-              id: 'id-2',
-              account: 'Bank Account',
-              amount: 952,
-              target: 'Puma Store',
-              time: new Date(),
-              avatar: 'PS',
-            },
-          ]}
-        />
+        <TransactionsList transactions={transactions} />
       </Section>
     </Stack>
   );
