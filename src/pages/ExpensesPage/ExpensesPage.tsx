@@ -2,6 +2,9 @@ import { Stack } from '@mui/material';
 
 import Calendar from './Calendar';
 import BalanceCardSmall from './BalanceCardSmall';
+import Section from '../../components/Section';
+import ExpensesList from './Expenses/ExpensesList';
+import ButtonViewAll from '../../components/ButtonViewAll';
 
 function ExpensesPage() {
   return (
@@ -21,6 +24,32 @@ function ExpensesPage() {
           color="#FF643B"
         />
       </Stack>
+
+      <Section
+        title="Expenses"
+        endContent={<ButtonViewAll>View All</ButtonViewAll>}
+      >
+        <ExpensesList
+          expenses={[
+            {
+              id: 'id-1',
+              account: 'Bank Account',
+              amount: 2486,
+              target: 'Nike Super Store',
+              time: new Date(),
+              avatar: 'NS',
+            },
+            {
+              id: 'id-2',
+              account: 'Bank Account',
+              amount: 952,
+              target: 'Puma Store',
+              time: new Date(),
+              avatar: 'PS',
+            },
+          ]}
+        />
+      </Section>
     </Stack>
   );
 }
