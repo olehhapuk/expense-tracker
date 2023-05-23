@@ -5,6 +5,7 @@ import BalanceCard from './BalanceCard';
 import Section from '../../components/Section';
 import YearSelect from './YearSelect';
 import AnalyticsChart from './AnalyticsChart';
+import TransactionsList from './Transactions/TransactionsList';
 
 const date = new Date();
 const currentYear = date.getFullYear();
@@ -70,6 +71,29 @@ function HomePage() {
         }
       >
         <AnalyticsChart items={revenueData} />
+      </Section>
+
+      <Section title="Transactions">
+        <TransactionsList
+          transactions={[
+            {
+              id: 'id-1',
+              account: 'Bank Account',
+              amount: 475,
+              target: 'Nike Super Store',
+              time: new Date(),
+              avatar: 'NS',
+            },
+            {
+              id: 'id-2',
+              account: 'Bank Account',
+              amount: 952,
+              target: 'Puma Store',
+              time: new Date(),
+              avatar: 'PS',
+            },
+          ]}
+        />
       </Section>
     </Stack>
   );
