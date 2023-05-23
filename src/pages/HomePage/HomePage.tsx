@@ -5,13 +5,13 @@ import BalanceCard from './BalanceCard';
 import Section from '../../components/Section';
 import YearSelect from './YearSelect';
 
+const date = new Date();
+const currentYear = date.getFullYear();
 const availableYears = new Array(5).fill(0).map((_, i) => ({
   key: i.toString(),
   value: currentYear - i,
   label: `Year - ${currentYear - i}`,
 }));
-const date = new Date();
-const currentYear = date.getFullYear();
 
 function HomePage() {
   const [year, setYear] = useState(currentYear);
