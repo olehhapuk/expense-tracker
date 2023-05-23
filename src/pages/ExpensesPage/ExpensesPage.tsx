@@ -17,7 +17,12 @@ function ExpensesPage() {
       {/* <Calendar /> */}
       <SmallCalendar />
 
-      <Stack direction="row" justifyContent="space-between" gap="20px">
+      <Stack
+        direction="row"
+        flexWrap="wrap"
+        justifyContent="space-between"
+        gap="20px"
+      >
         <BalanceCardSmall card={card} account="Bank Account" color="#8234F8" />
         <BalanceCardSmall card={card} account="Bank Account" color="#FF643B" />
       </Stack>

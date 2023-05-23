@@ -21,7 +21,7 @@ const Title = styled('h3')({
 });
 
 const Amount = styled('p')({
-  fontSize: '28px',
+  fontSize: '24px',
   fontWeight: '700',
   margin: 0,
 });
@@ -39,8 +39,9 @@ const Footer = styled(Stack)({
 
 const Account = styled('h4')({
   margin: 0,
-  fontSize: '14px',
+  fontSize: '13px',
   fontWeight: 400,
+  whiteSpace: 'nowrap',
 });
 
 const CardNumber = styled('p')({
@@ -62,12 +63,12 @@ function BalanceCardSmall({ card, account, color }: BalanceCardSmallProps) {
       <Title>Total Balance</Title>
       <Amount>{formatNumberToCurrency(card.amount)}</Amount>
 
-      <Footer direction="row" gap="8px">
+      <Footer direction="row" alignItems="center" gap="8px">
         <WalletIcon
           htmlColor={color}
           opacity={0.5}
           sx={{
-            fontSize: '43px',
+            fontSize: '40px',
           }}
         />
         <Stack justifyContent="space-between">
