@@ -42,11 +42,19 @@ const WeekDay = styled(Typography)(({ active }: { active?: boolean }) => ({
 
 const DaysRow = styled(Stack)();
 
-interface DayProps extends ButtonProps {
+const Day = styled('div')({
+  flexBasis: 'calc(100% / 7)',
+  height: '57px',
+  font: 'inherit',
+  color: 'inherit',
+  textAlign: 'center',
+});
+
+interface DayButtonProps extends ButtonProps {
   active?: boolean;
 }
 
-const Day = styled(Button)<DayProps>(({ active, theme }) => ({
+const DayButton = styled(Button)<DayButtonProps>(({ active, theme }) => ({
   minWidth: '39px',
   width: '39px',
   height: '57px',
@@ -59,7 +67,6 @@ const Day = styled(Button)<DayProps>(({ active, theme }) => ({
   justifyContent: 'space-between',
   paddingTop: '12px',
   paddingBottom: '9px',
-  margin: '0 34px',
 
   '&:hover': {
     backgroundColor: active ? theme.palette.warning.dark : alpha('#ccc', 0.3),
@@ -109,9 +116,11 @@ function SmallCalendar() {
           const active = i === 4;
 
           return (
-            <Day key={i} active={active}>
-              <DayLabel>{20 + i}</DayLabel>
-              <DayEventIcon active={active} />
+            <Day key={i}>
+              <DayButton active={active}>
+                <DayLabel>{20 + i}</DayLabel>
+                <DayEventIcon active={active} />
+              </DayButton>
             </Day>
           );
         })}
