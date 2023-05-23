@@ -9,7 +9,13 @@ function Layout() {
   return (
     <Stack height="100vh">
       <Navbar />
-      <Container sx={{ flexGrow: 1 }}>
+      <Container
+        sx={{
+          flexGrow: 1,
+          maxHeight: 'calc(100vh - 92px - 90px)',
+          overflowY: 'auto',
+        }}
+      >
         <Suspense fallback={null}>
           <Outlet />
         </Suspense>

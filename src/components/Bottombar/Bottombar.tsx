@@ -19,7 +19,7 @@ function Bottombar() {
   const { pathname } = useLocation();
 
   return (
-    <BottombarContainer maxWidth="xs">
+    <BottombarContainer maxWidth="xs" sx={{ flexShrink: 0 }}>
       <Stack
         direction="row"
         justifyContent="space-between"
