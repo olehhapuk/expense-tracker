@@ -3,11 +3,13 @@ import { useDispatch } from 'react-redux';
 
 import { userSlice } from './user.slice';
 import { cardSlice } from './card.slice';
+import { analyticsSlice } from './analytics.slice';
 
 export const store = configureStore({
   reducer: {
     user: userSlice.reducer,
     card: cardSlice.reducer,
+    analytics: analyticsSlice.reducer,
   },
 });
 

@@ -4,13 +4,10 @@ import { useMemo } from 'react';
 import AnalyticsChartLine from './AnalyticsChartLine';
 import { mapRange } from '../../utils/math';
 import { getMonthLabel } from '../../utils/date';
+import { Revenue } from '../../types/Revenue';
 
 interface AnalyticsChartProps {
-  items: {
-    key: string;
-    month: number;
-    revenue: number;
-  }[];
+  items: Revenue[];
 }
 
 const date = new Date();
@@ -32,12 +29,12 @@ function AnalyticsChart({ items }: AnalyticsChartProps) {
 
   return (
     <Stack direction="row" justifyContent="space-between" alignItems="end">
-      {items.slice(0, 7).map(({ key, revenue, month }) => {
+      {items.slice(0, 7).map(({ id, revenue, month }) => {
         const isActive = month === currentMonth;
 
         return (
           <AnalyticsChartLine
-            key={key}
+            key={id}
             isActive={isActive}
             revenue={revenue}
             height={mapRange(
